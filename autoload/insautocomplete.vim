@@ -18,11 +18,10 @@ function! s:insert(char) abort
 endfunction
 
 function! s:trigger() abort
-  let text = s:text_before_cursor()
+  let text = fnameescape(s:text_before_cursor())
   " 1. File paths
   if (text =~# get(s:patterns, 'path', ''))
-    let path = fnameescape(text)
-    if !empty(globpath(fnamemodify(path, ":p:h"), fnamemodify(path, ":p:t") .."*"))
+    if !empty(globpath(fnamemodify(text, ":p:h"), fnamemodify(text, ":p:t") .."*"))
       return "\<C-X>\<C-F>"
     endif
   endif

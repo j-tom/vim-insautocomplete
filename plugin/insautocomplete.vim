@@ -8,8 +8,12 @@ if !has('autocmd')
   finish
 endif
 
-set completeopt=menuone,noinsert,noselect
-set complete=.,b
+set completeopt-=menu
+set completeopt+=menuone
+set completeopt+=noinsert
+set completeopt+=noselect
+set complete+=.
+set complete+=b
 
 if (has("win64") || has("win32") || has("win16"))
   set completeslash="slash"
