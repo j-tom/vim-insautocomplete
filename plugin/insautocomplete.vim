@@ -21,6 +21,6 @@ endif
 
 augroup augroup_insautocomplete
   autocmd!
-  autocmd InsertCharPre * silent! call insautocomplete#automatic()
-  autocmd InsertEnter   * silent! call insautocomplete#automatic()
+  autocmd InsertEnter * silent! call insautocomplete#automatic()
+  autocmd CursorHoldI * silent! call insautocomplete#automatic()
 augroup end
